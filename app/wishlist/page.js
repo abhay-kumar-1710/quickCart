@@ -6,6 +6,7 @@ import { getUserProductInWishlist } from "@/query/wishlist";
 import { getLoggedInUser } from "@/lib/getLoggedinUser";
 import { redirect } from "next/navigation";
 import { sanitizeData } from "@/lib/sanitizeData";
+import Image from "next/image";
 
 const page = async () => {
   const loggedInUser = sanitizeData(await getLoggedInUser());
@@ -37,9 +38,11 @@ const page = async () => {
               <h1 className="text-5xl text-black text-center font-semibold">
                 No Products to Show
               </h1>
-              <img
+              <Image
+                width={500}
+                heigth={500}
                 src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png"
-                alt=""
+                alt="Empty Cart"
               />
             </div>
           </>

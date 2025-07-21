@@ -46,6 +46,7 @@ import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
 import { toggleWishlistAction } from "@/app/actions/wishlist";
 import { createCheckOutSession } from "@/app/actions/stripe";
+import Image from "next/image";
 
 const quantity = [
   {
@@ -157,9 +158,11 @@ const ProductDetailsAndImage = ({
     <>
       <div className="w-[100%] mx-auto  px-6 py-8 flex justify-start items-start  flex-col lg:flex-row lg:px-12 md:w-[90%]">
         <div className="h-full w-full">
-          <img
+          <Image
             src={productdetails?.productImage}
             alt={productdetails?.productName}
+            width={500}
+            height={500}
             className="object-contain"
           />
         </div>

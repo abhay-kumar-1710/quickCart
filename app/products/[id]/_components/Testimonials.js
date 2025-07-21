@@ -28,6 +28,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { postReview } from "@/app/actions/testimonials";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Testimonials = ({ testimonials, productdetails, loggedInUser }) => {
   const [formData, setFormData] = useState({
@@ -139,10 +140,12 @@ const Testimonials = ({ testimonials, productdetails, loggedInUser }) => {
                 >
                   <div className="w-full py-5 px-5 h-48 rounded-2xl bg-zinc-300 flex justify-start items-start flex-col gap-3">
                     <div className="w-full flex justify-start items-center gap-5">
-                      <img
+                      <Image
                         className="w-14 h-14 rounded-full"
                         src="https://i.pravatar.cc"
-                        alt=""
+                        alt="profile Image"
+                        width={100}
+                        height={100}
                       />
                       <h4 className="text-2xl font-medium">{`${testimonial?.userId?.firstName} ${testimonial?.userId?.lastName}`}</h4>
                     </div>
@@ -152,7 +155,7 @@ const Testimonials = ({ testimonials, productdetails, loggedInUser }) => {
                       </div>
                       <span>{formatMyDate(testimonial?.reviewOnDate)}</span>
                     </div>
-                    <p>"{testimonial?.review}"</p>
+                    <p>{`"${testimonial?.review}"`}</p>
                   </div>
                 </CarouselItem>
               ))}

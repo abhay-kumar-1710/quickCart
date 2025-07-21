@@ -12,7 +12,7 @@ const OrderSuccessButton = () => {
         setTimeout(() => {
                 router.push('/profile/orders')
         }, 2000);
-    }, [])
+    }, [router])
 
   return (
     <>

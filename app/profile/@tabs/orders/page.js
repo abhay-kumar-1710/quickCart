@@ -3,6 +3,7 @@ import OrderCard from './_components/OrderCard';
 import { getLoggedInUser } from '@/lib/getLoggedinUser';
 import { redirect } from 'next/navigation';
 import { getUserOrders } from '@/query/order';
+import Image from 'next/image';
 
 const page = async() => {
 
@@ -25,9 +26,11 @@ const page = async() => {
           <h1 className="text-5xl text-black text-center font-semibold">
             No Products to Show
           </h1>
-          <img
+          <Image
+            width={500}
+            heigth={500}
             src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png"
-            alt=""
+            alt="Empty Cart"
           />
         </div>
       )}
