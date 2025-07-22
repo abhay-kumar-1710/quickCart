@@ -47,6 +47,7 @@ import { redirect, useRouter } from "next/navigation";
 import { toggleWishlistAction } from "@/app/actions/wishlist";
 import { createCheckOutSession } from "@/app/actions/stripe";
 import Image from "next/image";
+import formatPrice from "@/lib/formatPrice";
 
 const quantity = [
   {
@@ -177,7 +178,7 @@ const ProductDetailsAndImage = ({
             {productdetails?.productName}
           </h1>
           <h4 className="text-3xl font-semibold">
-            &#8377; {productdetails?.price}
+            {formatPrice(productdetails?.price)}
           </h4>
           <div className="w-full flex justify-start items-center gap-10 ">
             {getProductInCart && (
