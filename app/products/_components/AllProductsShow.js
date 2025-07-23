@@ -12,15 +12,13 @@ import formatPrice from "@/lib/formatPrice";
 
 const AllProductsShow = ({ products, loggedInUser }) => {
   const router = useRouter();
+ 
 
   const handleSubmit = async (e, productId, productName, value) => {
     e.preventDefault();
-
-      if(!loggedInUser) {
-            return redirect('/login')
-           }
-    
-
+    if (!loggedInUser) {
+      return redirect("/login");
+    }
     if (value === "") {
       toast.warning("You have to Select Quantity!");
     } else {
@@ -39,6 +37,9 @@ const AllProductsShow = ({ products, loggedInUser }) => {
     const { url } = await createCheckOutSession(data);
     window.location.assign(url);
   };
+
+  
+
   return (
     <div className="w-[90%] mx-auto py-4 flex justify-start items-start flex-col md:px-8">
       <h1 className="text-3xl">All Products Of QuickCart</h1>

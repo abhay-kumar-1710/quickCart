@@ -12,6 +12,8 @@ import { sanitizeData } from "@/lib/sanitizeData";
 import { getLoggedInUser } from "@/lib/getLoggedinUser";
 import { findProductInCart } from "@/query/addtocart";
 import { findProductInWishlist } from "@/query/wishlist";
+import { Suspense } from "react";
+import Loader from "@/components/Loader";
 
 const page = async ({ params: { id } }) => {
   const productdetails = sanitizeData(await getProductsById(id));
@@ -38,24 +40,26 @@ const page = async ({ params: { id } }) => {
   // console.log("loggedInUser", loggedInUser);
 
   return (
-    <div className="pt-30">
-      <PageLocation productdetails={productdetails} />
-      <ProductDetailsAndImage
-        productdetails={productdetails}
-        loggedInUser={loggedInUser}
-        getProductInCart={getProductInCart}
-        isItemInWishlist={isItemInWishlist}
-      />
-      <Testimonials
-        testimonials={testimonials}
-        productdetails={productdetails}
-        loggedInUser={loggedInUser}
-      />
-      <YouMightAlsoLike
-        randomRelatedProducts={randomRelatedProducts}
-        loggedInUser={loggedInUser}
-      />
-    </div>
+    <Suspense fallback={<Loader/>}>
+      <div className="pt-30">
+        <PageLocation productdetails={productdetails} />
+        <ProductDetailsAndImage
+          productdetails={productdetails}
+          loggedInUser={loggedInUser}
+          getProductInCart={getProductInCart}
+          isItemInWishlist={isItemInWishlist}
+        />
+        <Testimonials
+          testimonials={testimonials}
+          productdetails={productdetails}
+          loggedInUser={loggedInUser}
+        />
+        <YouMightAlsoLike
+          randomRelatedProducts={randomRelatedProducts}
+          loggedInUser={loggedInUser}
+        />
+      </div>
+    </Suspense>
   );
 };
 

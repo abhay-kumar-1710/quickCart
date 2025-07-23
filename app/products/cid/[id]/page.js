@@ -6,6 +6,8 @@ import { getAllCategory, getCategoryById } from "@/query/category";
 import ProductsByCategory from "./_components/ProductsByCategory";
 import { sanitizeData } from "@/lib/sanitizeData";
 import { getLoggedInUser } from "@/lib/getLoggedinUser";
+import { Suspense } from "react";
+import Loader from "@/components/Loader";
 
 const page = async ({ params: { id } }) => {
   const products = sanitizeData(await getProductsByCategoryId(id));
@@ -19,15 +21,17 @@ const page = async ({ params: { id } }) => {
   
 
   return (
-    <div className="pt-35">
-      <PageLocation />
-      <CategoryBy categories={categories} />
-      <ProductsByCategory
-        products={products}
-        category={category}
-        loggedInUser={loggedInUser}
-      />
-    </div>
+    <Suspense fallback={<Loader/>}>
+      <div className="pt-35">
+        <PageLocation />
+        <CategoryBy categories={categories} />
+        <ProductsByCategory
+          products={products}
+          category={category}
+          loggedInUser={loggedInUser}
+        />
+      </div>
+    </Suspense>
   );
 };
 

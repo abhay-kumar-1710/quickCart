@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import PersonalDetails from "./_components/PersonalDetails";
 
 import Password from "./_components/Password";
@@ -6,6 +6,7 @@ import { getLoggedInUser } from "@/lib/getLoggedinUser";
 import { sanitizeData } from "@/lib/sanitizeData";
 import Address from "./_components/Address";
 import { getAddressByUserId } from "@/query/address";
+import Loader from "@/components/Loader";
 
 
 
@@ -21,17 +22,19 @@ const page = async () => {
   
   return (
     <>
-      <div className="flex justify-center items-center w-full flex-col gap-5">
-        <PersonalDetails loggedInUser={loggedInUser} />
-        <div className="flex justify-between items-start gap-5 w-full flex-col xl:flex-row">
-          <div className="w-full">
-            <Address loggedInUser={loggedInUser} userAddress={userAddress} />
-          </div>
-          <div className="w-full">
-            <Password loggedInUser={loggedInUser} />
+      <Suspense fallback={<Loader/>}>
+        <div className="flex justify-center items-center w-full flex-col gap-5">
+          <PersonalDetails loggedInUser={loggedInUser} />
+          <div className="flex justify-between items-start gap-5 w-full flex-col xl:flex-row">
+            <div className="w-full">
+              <Address loggedInUser={loggedInUser} userAddress={userAddress} />
+            </div>
+            <div className="w-full">
+              <Password loggedInUser={loggedInUser} />
+            </div>
           </div>
         </div>
-      </div>
+      </Suspense>
     </>
   );
 };

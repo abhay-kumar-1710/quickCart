@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import OrderCard from './_components/OrderCard';
 import { getLoggedInUser } from '@/lib/getLoggedinUser';
 import { redirect } from 'next/navigation';
 import { getUserOrders } from '@/query/order';
 import Image from 'next/image';
+import Loader from '@/components/Loader';
 
 const page = async() => {
 
@@ -18,23 +19,25 @@ const page = async() => {
   
 
   return (
-    <div className="w-full flex justify-start items-center flex-wrap gap-14 xl:gap-24 p-5  ">
-      {userAllOrders.length > 0 ? (
-        <OrderCard userAllOrders={userAllOrders} />
-      ) : (
-        <div className="w-full h-80vh flex justify-center items-center flex-col gap-5">
-          <h1 className="text-5xl text-black text-center font-semibold">
-            No Products to Show
-          </h1>
-          <Image
-            width={500}
-            height={500}
-            src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png"
-            alt="Empty Cart"
-          />
-        </div>
-      )}
-    </div>
+    <Suspense fallback={<Loader/>}>
+      <div className="w-full flex justify-start items-center flex-wrap gap-14 xl:gap-24 p-5  ">
+        {userAllOrders.length > 0 ? (
+          <OrderCard userAllOrders={userAllOrders} />
+        ) : (
+          <div className="w-full h-80vh flex justify-center items-center flex-col gap-5">
+            <h1 className="text-5xl text-black text-center font-semibold">
+              No Products to Show
+            </h1>
+            <Image
+              width={500}
+              height={500}
+              src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png"
+              alt="Empty Cart"
+            />
+          </div>
+        )}
+      </div>
+    </Suspense>
   );
 }
 
