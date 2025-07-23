@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -19,12 +20,12 @@ const PageLocation = () => {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <Link href="/">Home</Link>
           </BreadcrumbItem>
 
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+            <Link href="/products">Products</Link>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

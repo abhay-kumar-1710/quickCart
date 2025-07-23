@@ -136,16 +136,18 @@ const NavbarSession = () => {
 
       {!loginSession && (
         <>
-          <Link href="/signup">
-            <Button className="hover:cursor-pointer hidden sm:hidden md:hidden lg:flex">
-              Sign Up <CircleUserRound />
-            </Button>
-          </Link>
-          <Link href="/login">
-            <Button className="hover:cursor-pointer hidden sm:hidden md:hidden lg:flex">
-              Log In <LogIn />
-            </Button>
-          </Link>
+          <div className="hidden lg:flex gap-5">
+            <Link href="/signup">
+              <Button className="hover:cursor-pointer hidden sm:hidden md:hidden lg:flex">
+                Sign Up <CircleUserRound />
+              </Button>
+            </Link>
+            <Link href="/login">
+              <Button className="hover:cursor-pointer hidden sm:hidden md:hidden lg:flex">
+                Log In <LogIn />
+              </Button>
+            </Link>
+          </div>
         </>
       )}
 
@@ -172,8 +174,11 @@ const NavbarSession = () => {
                   <Link href="/products" className="text-2xl font-semibold">
                     Products
                   </Link>
-                  <Link href="#" className="text-2xl font-semibold">
-                    Blog
+                  <Link href="/profile" className="text-2xl font-semibold">
+                    Profile
+                  </Link>
+                  <Link href="/profile/orders" className="text-2xl font-semibold">
+                   My Orders
                   </Link>
                   <Link href="#" className="text-2xl font-semibold">
                     Wishlist

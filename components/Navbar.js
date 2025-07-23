@@ -44,7 +44,7 @@ const Navbar = () => {
             Profile
           </Link>
         </div>
-        <div className="flex justify-center items-center gap-4 lg:gap-8">
+        <div className="flex justify-center items-center gap-5 ">
           <Link href="/wishlist">
             <div className="hover:cursor-pointer">
               <Heart />

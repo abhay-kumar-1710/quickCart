@@ -12,7 +12,7 @@ const CategoryCard = ({ allCategory }) => {
             href={`/products/cid/${category?._id}`}
             key={category?._id}
           >
-            <div className="w-90 h-70 rounded-4xl border-zinc-300 border-2 flex justify-center items-center sm:w-70">
+            <div className="w-70 h-70 rounded-4xl border-zinc-300 border-2 flex justify-center items-center sm:w-70 md:w-90">
               <div className="text-3xl font-medium flex justify-center items-center flex-col gap-3">
                 <Image
                   className="rounded-full h-50 w-50 object-cover"

@@ -19,10 +19,9 @@ const PageLocation = () => {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <Link href="/">Home</Link>
           </BreadcrumbItem>
-         
-         
+
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbPage>Products</BreadcrumbPage>

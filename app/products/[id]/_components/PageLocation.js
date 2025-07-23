@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -13,18 +14,18 @@ import {
 const PageLocation = ({ productdetails }) => {
   return (
     <div className="w-[90%] mx-auto flex justify-start items-center gap-5">
-      <Link href="/">
+      <Link href="/products">
         <ArrowLeft className="hover:cursor-pointer" />
       </Link>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <Link href="/">Home</Link>
           </BreadcrumbItem>
 
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+            <Link href="/products">Products</Link>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

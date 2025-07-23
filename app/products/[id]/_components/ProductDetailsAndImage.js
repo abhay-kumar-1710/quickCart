@@ -125,27 +125,34 @@ const ProductDetailsAndImage = ({
   const handleWishlist = async (e) => {
     e.preventDefault();
 
-
-    try {
-      await toggleWishlistAction(
-        loggedInUser?._id,
-        productdetails?._id,
-        wishList
-      );
-      if (wishList) {
-        toast.success(
-          `${productdetails?.productName} Added to Wishlist Successfully!`
-        );
-         router.refresh();
-      } else {
-        toast.success(
-          `${productdetails?.productName} Removed from Wishlist Successfully!`
-        );
-         router.refresh();
-      }
-    } catch (error) {
-      toast.error(`Failed to add ${productdetails?.productName} to Wishlist!`);
+    if(!loggedInUser) {
+      router.push("/login")
     }
+    else {
+      try {
+        await toggleWishlistAction(
+          loggedInUser?._id,
+          productdetails?._id,
+          wishList
+        );
+        if (wishList) {
+          toast.success(
+            `${productdetails?.productName} Added to Wishlist Successfully!`
+          );
+          router.refresh();
+        } else {
+          toast.success(
+            `${productdetails?.productName} Removed from Wishlist Successfully!`
+          );
+          router.refresh();
+        }
+      } catch (error) {
+        toast.error(
+          `Failed to add ${productdetails?.productName} to Wishlist!`
+        );
+      }
+    }
+    
   };
 
   const handleBuyNowAction = async (data) =>{

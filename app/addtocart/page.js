@@ -41,7 +41,7 @@ const page = async () => {
   
   return (
     <>
-      <Suspense fallback={<Loader/>}>
+      <Suspense fallback={<Loader />}>
         <h1 className="text-5xl md:text-6xl font-medium pt-35 text-center">
           My Cart
         </h1>
@@ -95,16 +95,18 @@ const page = async () => {
           </div>
         ) : (
           <>
-            <div className="w-full h-80vh flex justify-center items-center flex-col gap-5">
-              <h1 className="text-5xl text-black text-center font-semibold">
+            <div className="w-full min-h-[50vh] flex justify-center items-center flex-col gap-5 my-5">
+              <h1 className="text-2xl md:text-4xl text-black text-center font-semibold">
                 No Products to Show
               </h1>
-              <Image
-                width={500}
-                height={500}
-                src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png"
-                alt="Empty Cart"
-              />
+              <div className="w-[80%]  flex justify-center items-center">
+                <Image
+                  width={500}
+                  height={500}
+                  src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png"
+                  alt="Empty Cart"
+                />
+              </div>
             </div>
           </>
         )}

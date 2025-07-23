@@ -88,7 +88,7 @@ const WishlistCard = ({ wishlistItems, loggedInUser }) => {
             </div>
           </Link>
 
-          <div className="w-full flex justify-between items-center gap-2">
+          <div className="w-full flex flex-col justify-between items-center gap-2 md:flex-row">
             <form
               onSubmit={(e) => {
                 handleSubmit(
@@ -98,7 +98,7 @@ const WishlistCard = ({ wishlistItems, loggedInUser }) => {
                   1
                 );
               }}
-              className="w-1/2"
+              className="w-full md:w-1/2"
             >
               <Button
                 variant={"outline"}
@@ -116,7 +116,7 @@ const WishlistCard = ({ wishlistItems, loggedInUser }) => {
                   wishList?.productId?.productName
                 );
               }}
-              className="w-1/2"
+              className="w-full md:w-1/2"
             >
               <Button
                 variant={"destructive"}

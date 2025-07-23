@@ -8,9 +8,9 @@ export default function GlobalError({ error, reset }) {
           <h2 className="text-2xl font-bold text-red-600">
             Something went wrong!
           </h2>
-          <p className="mt-2 text-gray-500">{error.message}</p>
+          <p className="mt-2 text-gray-500 w-[70%]">{error.message}</p>
           <button
-            onClick={() => reset()}
+            onClick={() => window.location.reload()}
             className="mt-6 px-4 py-2 bg-black text-white rounded hover:cursor-pointer"
           >
             Try again
