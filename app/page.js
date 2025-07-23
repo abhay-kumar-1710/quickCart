@@ -10,6 +10,8 @@ import { getAllCategory } from "@/query/category";
 import { getAllProducts, getProductsByCategoryId } from "@/query/product";
 import Image from "next/image";
 import { addToCartDeleteQuery, getUserCartProducts } from "@/query/addtocart";
+import { Suspense } from "react";
+import Loader from "@/components/Loader";
 
 export default async function Home() {
   const products = sanitizeData(await getAllProducts());
@@ -36,22 +38,24 @@ export default async function Home() {
 
   return (
     <>
-      <HeroSection />
-      <HomeCategory homeCategoryCards={homeCategoryCards} />
-      <HomeFeaturesProduct
-        featureProducts={featureProducts}
-        loggedInUser={loggedInUser}
-        allUserProductsInCart={allUserProductsInCart}
-      />
-      <HomeMobile
-        mobile4Products={mobile4Products}
-        loggedInUser={loggedInUser}
-      />
-      <HighlyRecommended
-        highlyRecommendedProducts={highlyRecommendedProducts}
-        loggedInUser={loggedInUser}
-      />
-      <HomeBanner />
+      <Suspense fallback={<Loader />}>
+        <HeroSection />
+        <HomeCategory homeCategoryCards={homeCategoryCards} />
+        <HomeFeaturesProduct
+          featureProducts={featureProducts}
+          loggedInUser={loggedInUser}
+          allUserProductsInCart={allUserProductsInCart}
+        />
+        <HomeMobile
+          mobile4Products={mobile4Products}
+          loggedInUser={loggedInUser}
+        />
+        <HighlyRecommended
+          highlyRecommendedProducts={highlyRecommendedProducts}
+          loggedInUser={loggedInUser}
+        />
+        <HomeBanner />
+      </Suspense>
     </>
   );
 }

@@ -1,18 +1,6 @@
-
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect } from "react";
-
 export default function GlobalError({ error, reset }) {
-
-  const pathName = usePathname()
-  const router = useRouter()
-
-  useEffect(()=>{
-    router.refresh()
-  }, [error])
-
   return (
     <html>
       <body className="flex flex-col items-center justify-center bg-white text-center">

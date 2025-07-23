@@ -23,11 +23,13 @@ import {
 } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
 import NavbarSession from "./NavbarSession";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
     <>
       <nav className="mx-auto w-[100%] bg-white  flex justify-between items-center px-2 py-3 fixed top-0 left-1/2 transform -translate-x-1/2 z-50 xl:w-[90%] md:w-[90%] sm:w-full sm:px-8 sm:py-5 sm:rounded-b-3xl shadow-2xl shadow-zinc-600">
+       
         <Link href="/" className="text-3xl font-semibold">
           QuickCart
         </Link>

@@ -6,7 +6,9 @@ import FooterStrip from "@/components/FooterStrip";
 import { connectDB } from "@/database/db";
 import { Toaster } from "@/components/ui/sonner";
 import SessionWrapper from "@/SessionWrapper";
+import { Suspense } from "react";
 
+import Loader from "@/components/Loader";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,16 +29,18 @@ export default async function RootLayout({ children }) {
     await connectDB()
 
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
-        <SessionWrapper>
-          <Navbar />
-          {children}
-          <Footer />
-          <FooterStrip />
-          <Toaster position="top-center" richColors />
-        </SessionWrapper>
-      </body>
-    </html>
+    <Suspense fallback={<Loader/>}>
+      <html lang="en">
+        <body className={`${poppins.variable} antialiased`}>
+          <SessionWrapper>
+            <Navbar />
+            {children}
+            <Footer />
+            <FooterStrip />
+            <Toaster position="top-center" richColors />
+          </SessionWrapper>
+        </body>
+      </html>
+    </Suspense>
   );
 }

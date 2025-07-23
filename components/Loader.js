@@ -2,8 +2,10 @@ import React from 'react'
 
 const Loader = () => {
   return (
-    <div className="flex items-center justify-center h-[50vh]">
-      <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-black" />
+    <div className="flex items-center justify-center h-[100vh]">
+      <div className="w-30 h-30 md:w-20 md:h-20 bg-black rounded-full animate-spin text-white flex justify-center items-center">
+        <span className="text-3xl font-medium">QC</span>
+      </div>
     </div>
   );
 }

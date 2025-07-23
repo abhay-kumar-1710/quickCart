@@ -12,7 +12,6 @@ import Loader from "@/components/Loader";
 const page = async () => {
   const products = sanitizeData(await getAllProducts());
   const categories = await getAllCategory();
-
   const loggedInUser = sanitizeData(await getLoggedInUser());
 
   return (
