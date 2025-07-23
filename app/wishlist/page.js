@@ -24,7 +24,7 @@ const page = async () => {
   return (
     <>
       <div className="flex justify-center items-center w-[90%] mx-auto pt-34 pb-5 gap-5  flex-col  ">
-        <h1 className="text-6xl font-medium">My Wish List</h1>
+        <h1 className="text-4xl md:text-6xl font-medium">My Wish List</h1>
         {wishlistItems.length > 0 ? (
           <div className="w-[100%] flex justify-start items-center gap-15 flex-col  xl:flex-row xl:flex-wrap">
             <WishlistCard
@@ -40,7 +40,7 @@ const page = async () => {
               </h1>
               <Image
                 width={500}
-                heigth={500}
+                height={500}
                 src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png"
                 alt="Empty Cart"
               />
@@ -53,3 +53,8 @@ const page = async () => {
 };
 
 export default page;
+
+
+export const metadata = {
+  title: `Quick Cart - Wishlist Products`,
+};

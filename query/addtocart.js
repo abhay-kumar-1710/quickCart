@@ -82,4 +82,5 @@ export async function updateQuantityFromCartQuery(userId, productId, value) {
   } catch (error) {
     throw new Error(error);
   }
+  revalidatePath('/addtocart')
 }

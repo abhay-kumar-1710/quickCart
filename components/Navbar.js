@@ -38,8 +38,8 @@ const Navbar = () => {
           <Link href="/products" className="text-md font-semibold">
             Products
           </Link>
-          <Link href="#" className="text-md font-semibold">
-            Blog
+          <Link href="/profile" className="text-md font-semibold">
+            Profile
           </Link>
         </div>
         <div className="flex justify-center items-center gap-4 lg:gap-8">

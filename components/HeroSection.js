@@ -9,8 +9,8 @@ const HeroSection = () => {
 
 
       <Image
-      width={500}
-      height={500}
+      width={1600}
+      height={1600}
       alt='HeroSectionImage'
         className="w-full h-full object-cover opacity-[95%]"
         src={"https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg"}

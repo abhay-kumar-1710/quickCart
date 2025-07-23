@@ -167,20 +167,20 @@ const ProductDetailsAndImage = ({
             className="object-contain"
           />
         </div>
-        <div className="h-full px-5 py-8 w-full   flex justify-start items-start flex-col gap-5">
+        <div className="h-full px-2 py-8 w-full md:px-5  flex justify-start items-start flex-col gap-5">
           <Badge
             variant="destructive"
             className={"bg-green-600 font-semibold text-sm"}
           >
             {productdetails?.categoryId?.categoryName}
           </Badge>
-          <h1 className="text-5xl font-semibold">
+          <h1 className="text-4xl md:text-5xl font-semibold">
             {productdetails?.productName}
           </h1>
           <h4 className="text-3xl font-semibold">
             {formatPrice(productdetails?.price)}
           </h4>
-          <div className="w-full flex justify-start items-center gap-10 ">
+          <div className="w-full flex justify-start items-center gap-6 md:gap-10 ">
             {getProductInCart && (
               <>
                 <Link className="w-1/3" href="/addtocart">
@@ -280,7 +280,11 @@ const ProductDetailsAndImage = ({
             )}
 
             <form action={handleBuyNowAction} className="w-1/3">
-              <input type="hidden" name="productId" value={productdetails?._id} />
+              <input
+                type="hidden"
+                name="productId"
+                value={productdetails?._id}
+              />
               <Button className="w-full hover:cursor-pointer">Buy Now</Button>
             </form>
             <form onSubmit={handleWishlist}>

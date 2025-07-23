@@ -28,7 +28,7 @@ const page = async() => {
           </h1>
           <Image
             width={500}
-            heigth={500}
+            height={500}
             src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--shopping-ecommerce-simple-error-state-pack-user-interface-illustrations-6024626.png"
             alt="Empty Cart"
           />
@@ -39,3 +39,7 @@ const page = async() => {
 }
 
 export default page
+
+export const metadata = {
+  title: `Quick Cart - My Orders`,
+};

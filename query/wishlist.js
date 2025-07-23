@@ -50,7 +50,7 @@ export async function findProductInWishlist(userId, productId) {
 export async function wishlistDeleteQuery(userId, productId) {
     try {
       const wishlist = await Wishlist.findOneAndDelete({userId, productId}).lean()
-      revalidatePath('/addtocart')
+      revalidatePath('/wishlist')
       return wishlist;
     } catch (error) {
       throw new Error(error);

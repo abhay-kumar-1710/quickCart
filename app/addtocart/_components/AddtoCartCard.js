@@ -64,6 +64,8 @@ const quantity = [
 
 const AddtoCartCard = ({ userCartItems }) => {
   const [open, setOpen] = React.useState(false);
+  const [isChangeQuantity, setIsChangeQuantity] = React.useState(false)
+  
   const [value, setValue] = React.useState("");
 
   const router = useRouter();
@@ -72,7 +74,7 @@ const AddtoCartCard = ({ userCartItems }) => {
     e.preventDefault();
     try {
       const res = await addToCartDeleteAction(userId, productId);
-      
+      router.refresh()
       toast.success(`${productName} has been removed from Cart!`);
     } catch (error) {
       toast.error(`Failed to remove item from the Cart!`);
@@ -86,10 +88,12 @@ const AddtoCartCard = ({ userCartItems }) => {
     try {
       const res = await updateQuantityFromCartAction(userId, productId, value);
       router.refresh();
+      setIsChangeQuantity(false)
       toast.success(`${productName} quantity has been changed from Cart!`);
     } catch (error) {
       toast.error(`Failed to change item quantity from the Cart!`);
       console.log(error);
+       setIsChangeQuantity(false);
     }
     
   };
@@ -142,14 +146,17 @@ const AddtoCartCard = ({ userCartItems }) => {
           </Link>
 
           <div className="w-full flex justify-between items-center gap-2">
-            <Dialog>
+            <Dialog open={isChangeQuantity} onOpenChange={setIsChangeQuantity}>
               <div className="w-1/2">
                 <DialogTrigger asChild>
                   <Button className="w-full hover:cursor-pointer">
                     Change Quantity
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
+                <DialogContent
+                 
+                  className="sm:max-w-[425px]"
+                >
                   <DialogHeader>
                     <DialogTitle>Select Quantity</DialogTitle>
                     <DialogDescription>Choose The Quantity</DialogDescription>
@@ -224,7 +231,7 @@ const AddtoCartCard = ({ userCartItems }) => {
                           value === ""
                             ? "hover:cursor-no-drop bg-zinc-500 hover:bg-zinc-500"
                             : "hover:cursor-pointer  bg-zinc-950"
-                        } `}
+                        } w-full`}
                         type="submit"
                       >
                         Change Quantity

@@ -19,3 +19,7 @@ const page = async() => {
 }
 
 export default page
+
+export const metadata = {
+  title: `Quick Cart - Explore By Category`,
+};
