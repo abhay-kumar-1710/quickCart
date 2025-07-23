@@ -23,7 +23,7 @@ export default function GlobalError({ error, reset }) {
           <p className="mt-2 text-gray-500">{error.message}</p>
           <button
             onClick={() => reset()}
-            className="mt-6 px-4 py-2 bg-black text-white rounded hover:cursor-pointer"
+            className="mt-6 px-4 py-2 bg-black text-white rounded hover:cursor-poiter"
           >
             Try again
           </button>
