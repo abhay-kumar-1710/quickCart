@@ -6,11 +6,9 @@ const nextConfig = {
       "images.pexels.com",
       "i.pinimg.com",
       "cdni.iconscout.com",
-<<<<<<< HEAD
-      "i.pravatar.cc"
-=======
+
+
       "i.pravatar.cc",
->>>>>>> 1b562eb (Updated UI and features)
     ],
   },
 };
