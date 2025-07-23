@@ -34,7 +34,9 @@ const LoginForm = () => {
       toast.success("Logged In Successfully!");
       router.push("/");
     } else {
-      toast.error("Failed to Log In!");
+      setEmail("")
+      setPassword("")
+      toast.error("Failed to Log In! Please Provide Correct Credentials!");
     }
   };
 

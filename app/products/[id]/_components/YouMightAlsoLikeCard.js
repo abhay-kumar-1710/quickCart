@@ -10,7 +10,7 @@ import formatPrice from "@/lib/formatPrice";
 const YouMightAlsoLikeCard = ({ randomRelatedProducts }) => {
  
   return (
-    <div className="w-full flex justify-between items-center flex-wrap gap-10  p-5 ">
+    <div className="w-full flex justify-between items-center flex-wrap gap-10  p-0 md:p-5 ">
       {randomRelatedProducts.map((product) => (
         <div
           key={product?._id}

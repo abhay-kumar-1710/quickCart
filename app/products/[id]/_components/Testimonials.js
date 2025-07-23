@@ -140,13 +140,12 @@ const Testimonials = ({ testimonials, productdetails, loggedInUser }) => {
                 >
                   <div className="w-full py-5 px-5 h-48 rounded-2xl bg-zinc-300 flex justify-start items-start flex-col gap-3">
                     <div className="w-full flex justify-start items-center gap-5">
-                      <Image
-                        className="w-14 h-14 rounded-full"
-                        src="https://i.pravatar.cc"
-                        alt="profile Image"
-                        width={100}
-                        height={100}
-                      />
+                      <div className="w-14 h-14 rounded-full flex justify-center items-center bg-zinc-100">
+                        <span className="text-2xl font-medium">
+                          {testimonial?.userId?.firstName?.[0]}
+                          {testimonial?.userId?.lastName?.[0]}
+                        </span>
+                      </div>
                       <h4 className="text-2xl font-medium">{`${testimonial?.userId?.firstName} ${testimonial?.userId?.lastName}`}</h4>
                     </div>
                     <div className="flex justify-between items-start w-full flex-col sm:flex-row gap-3 sm:items-center">

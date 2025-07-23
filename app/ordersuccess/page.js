@@ -89,3 +89,8 @@ const Success = async ({
   );
 };
 export default Success;
+
+
+export const metadata = {
+  title: `Quick Cart - Your Order Successfully Placed`,
+};

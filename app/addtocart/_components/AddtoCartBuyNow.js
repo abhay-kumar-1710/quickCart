@@ -12,7 +12,7 @@ const AddtoCartBuyNow = ({ orderTotalPrice, userCartItems }) => {
   
   return (
     <div className="w-full flex justify-center items-center">
-      <form action={handleBuyNowAction} className="w-[80%]">
+      <form action={handleBuyNowAction} className="w-[100%] sm:w-[80%]">
         <input type="hidden" name="orderTotalPrice" value={orderTotalPrice} />
         <input type="hidden" name="productId" value={userCartItems[0]?.productId?._id} />
         <Button

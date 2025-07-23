@@ -16,6 +16,7 @@ const page = async ({ params: { id } }) => {
 
   const loggedInUser = sanitizeData(await getLoggedInUser())
   
+  
 
   return (
     <div className="pt-35">
@@ -31,3 +32,7 @@ const page = async ({ params: { id } }) => {
 };
 
 export default page;
+
+export const metadata = {
+  title: `Quick Cart - Products By Category`,
+};

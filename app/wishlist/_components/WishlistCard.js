@@ -8,6 +8,7 @@ import { wishlistDeleteAction } from "@/app/actions/wishlist";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { addToCartAction } from "@/app/actions/addtocart";
+import formatPrice from "@/lib/formatPrice";
 
 const WishlistCard = ({ wishlistItems, loggedInUser }) => {
   const router = useRouter();
@@ -49,7 +50,7 @@ const WishlistCard = ({ wishlistItems, loggedInUser }) => {
         >
           <Link
             href={`/products/${wishList?.productId?._id}`}
-            className="w-full"
+            className="w-full flex justify-start items-center flex-col gap-2"
           >
             <div className="w-full h-60 sm:h-80">
               <Image
@@ -63,7 +64,9 @@ const WishlistCard = ({ wishlistItems, loggedInUser }) => {
 
             <div className="w-full flex justify-between items-center">
               <h3 className="px-3 text-2xl font-semibold">
-                {wishList?.productId?.productName}
+                {wishList?.productId?.productName?.length > 15
+                  ? wishList?.productId?.productName.slice(0, 15) + "..."
+                  : wishList?.productId?.productName}
               </h3>
               <div className="  bg-zinc-100 px-1 rounded-full">
                 <span className="text-[12px]">
@@ -79,7 +82,7 @@ const WishlistCard = ({ wishlistItems, loggedInUser }) => {
               </div>
               <div className="flex justify-center items-center gap-2">
                 <span className="text-xl font-semibold">
-                  &#8377;{wishList?.productId?.price}
+                  {formatPrice(wishList?.productId?.price)}
                 </span>
               </div>
             </div>
@@ -119,7 +122,7 @@ const WishlistCard = ({ wishlistItems, loggedInUser }) => {
                 variant={"destructive"}
                 className={"w-full hover:cursor-pointer"}
               >
-                Remove from Cart
+                Remove from Wishlist
               </Button>
             </form>
           </div>

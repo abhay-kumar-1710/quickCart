@@ -13,7 +13,6 @@ import { getLoggedInUser } from "@/lib/getLoggedinUser";
 import { findProductInCart } from "@/query/addtocart";
 import { findProductInWishlist } from "@/query/wishlist";
 
-
 const page = async ({ params: { id } }) => {
   const productdetails = sanitizeData(await getProductsById(id));
 
@@ -37,7 +36,7 @@ const page = async ({ params: { id } }) => {
   );
 
   // console.log("loggedInUser", loggedInUser);
-  
+
   return (
     <div className="pt-30">
       <PageLocation productdetails={productdetails} />
@@ -61,3 +60,7 @@ const page = async ({ params: { id } }) => {
 };
 
 export default page;
+
+export const metadata = {
+  title: `Quick Cart - Product Detail Page`,
+};

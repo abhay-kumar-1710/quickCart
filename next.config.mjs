@@ -6,6 +6,7 @@ const nextConfig = {
       "images.pexels.com",
       "i.pinimg.com",
       "cdni.iconscout.com",
+      "i.pravatar.cc",
     ],
   },
 };

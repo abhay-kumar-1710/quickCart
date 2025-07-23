@@ -27,11 +27,19 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { CircleUser } from "lucide-react";
 import { BaggageClaim } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const NavbarSession = () => {
   const { data: session } = useSession();
   const [loginSession, setLoginSession] = useState();
   const [loginUser, setLoginUser] = useState();
+  const [open, setOpen] = useState(false);
+
+  const pathName = usePathname()
+
+  useEffect(()=>{
+    setOpen(false)
+  }, [pathName])
 
   useEffect(() => {
     setLoginSession(session);
@@ -142,7 +150,7 @@ const NavbarSession = () => {
       )}
 
       <div className="relative z-50 flex justify-center items-center  lg:hidden">
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger>
             <MenuIcon />
           </SheetTrigger>
